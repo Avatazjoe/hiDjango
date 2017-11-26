@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'polls/index.css' %}" />
+		<style type="text/css">
+			.single-page .media-heading { color: #FC7D01;     text-transform: uppercase;}
+
+		</style>
+	</head>
+
+    <body>
+        <header class="navbar">
+            <div class="nav-bar">
+                <div class="container">
+                    <ul class="nav-bar__menu pos left">
+                        <li class="nav-bar__menu-item">
+                            <p> Questions? Call +1 223456789 </p>
+                        </li>
+                        <li class="nav-bar__menu-item">
+                            <p> HELP </p>
+                        </li>
+                        <li class="nav-bar__menu-item">
+                            <p> LIVE CHAT </p>
+                        </li>
+
+                    </ul>
+                    <ul class="nav-bar__menu pos right">
+                        <li class="nav-bar__menu-item">
+                            <p> TRACK YOUR ORDER </p>
+                        </li>
+                        <li class="nav-bar__menu-item">
+                            <p> MY ACCOUNT <p/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="logo-bar">
+                <div class="container">
+
+                    <div class="logo-bar logo">
+                        <a href="#">
+                            <img src="https://cdn6.aptoide.com/imgs/a/2/7/a2773f9071028f4ff9b01a3c1bae11f6_icon.png?w=256"
+                                 width="100" height="100" alt="Milyoncu"/>
+                            <img src="https://cdn6.aptoide.com/imgs/a/2/7/a2773f9071028f4ff9b01a3c1bae11f6_icon.png?w=256"
+                                 width="100" height="100" alt="Milyoncu"/>
+                            <img src="https://cdn6.aptoide.com/imgs/a/2/7/a2773f9071028f4ff9b01a3c1bae11f6_icon.png?w=256"
+                                 width="100" height="100" alt="Milyoncu"/>
+                        </a>
+                    </div>
+
+
+
+                    <div class="logo- bar cart">
+                        <a href="#">
+                            <a href="https://resmim.net/run/NGDTr3.png"><img src="https://resmim.net/f/NGDTr3.png" /></a>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="menu-bar">
+                <div class="container">
+                        <div class="products-bar__menu-item">
+                            <span>
+                                Sweatbands
+                            </span>
+
+
+                            <span>
+                                Headbands
+                            </span>
+
+                            <span>
+                                Bandanas
+                            </span>
+
+                            <span>
+                                Balloons
+                            </span>
+
+
+                            <span>
+                                Table Covers
+                            </span>
+
+                            <span>
+                                Coasters
+                            </span>
+
+
+                            <span>
+                                AllProducts
+                            </span>
+
+                        </div>
+
+
+                </div>
+            </div>
+
+        </header>
+
+        <div class="content">
+                <div class="container">
+
+
+                        {% block content %}{% endblock %}
+
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container" >
+                <div class="footer-wrapper">
+                  <p >Copyright &copy; Sitename 2015</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

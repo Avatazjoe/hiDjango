@@ -18,6 +18,8 @@ urlpatterns = [
 
     url(r'^cart/', CartView.as_view(), name='cart'),
 
+    url(r'^allproducts/', AllProducts.as_view(), name='allproducts'),
+
 
 ]
 

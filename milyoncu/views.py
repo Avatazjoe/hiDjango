@@ -5,8 +5,7 @@ from .models import Product, Category
 
 class IndexView(ListView):
     template_name = "index.html"
-    queryset = Product.objects.all()
-
+    queryset = Product.objects.order_by('?')[0:4]
 
 
 class SweatbandsView(IndexView):
@@ -38,6 +37,10 @@ class CoastersView(IndexView):
 
 class CartView(IndexView):
     template_name = "cart.html"
+    queryset = Product.objects.all()
+
+class AllProducts(IndexView):
+    template_name = "allproducts.html"
     queryset = Product.objects.all()
 
 

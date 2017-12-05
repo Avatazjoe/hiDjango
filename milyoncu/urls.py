@@ -20,6 +20,8 @@ urlpatterns = [
 
     url(r'^allproducts/', AllProducts.as_view(), name='allproducts'),
 
+    url(r'^preview/', Preview.as_view(), name='preview'),
+
 
 ]
 

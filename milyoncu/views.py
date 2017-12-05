@@ -7,40 +7,40 @@ class IndexView(ListView):
     template_name = "index.html"
     queryset = Product.objects.order_by('?')[0:4]
 
-
 class SweatbandsView(IndexView):
     template_name = "sweatbands.html"
-    queryset = Product.objects.all()[0:4]
-
+    queryset = Product.objects.all().filter(category_id='1')
 
 class HeadbandsView(IndexView):
     template_name = "headbands.html"
-    queryset = Product.objects.all()[4:8]
-
+    queryset = Product.objects.all().filter(category_id='2')
 
 class BandanasView(IndexView):
     template_name = "bandanas.html"
-    queryset = Product.objects.all()[8:12]
-
+    queryset = Product.objects.all().filter(category_id='3')
 
 class BalloonsView(IndexView):
     template_name = "balloons.html"
-    queryset = Product.objects.all()[12:16]
+    queryset = Product.objects.all().filter(category_id='4')
 
 class TableCoversView(IndexView):
     template_name = "tablecovers.html"
-    queryset = Product.objects.all()[16:20]
+    queryset = Product.objects.all().filter(category_id='5')
 
 class CoastersView(IndexView):
     template_name = "coasters.html"
-    queryset = Product.objects.all()[20:24]
+    queryset = Product.objects.all().filter(category_id='6')
 
 class CartView(IndexView):
     template_name = "cart.html"
-    queryset = Product.objects.all()
+    #queryset = Product.objects.all().filter(category_id='')
 
 class AllProducts(IndexView):
     template_name = "allproducts.html"
     queryset = Product.objects.all()
+
+class Preview(DetailView):
+    template_name = "preview.html"
+
 
 

@@ -22,6 +22,8 @@ urlpatterns = [
 
     url(r'^preview/', Preview.as_view(), name='preview'),
 
+    # url(r'^(?P<slug>[\w-]+)/', Preview.as_view(), name='preview'),
+
 
 ]
 

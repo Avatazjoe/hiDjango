@@ -39,8 +39,10 @@ class AllProducts(IndexView):
     template_name = "allproducts.html"
     queryset = Product.objects.all()
 
-class Preview(DetailView):
+class Preview(SweatbandsView):
+
     template_name = "preview.html"
+
 
 
 

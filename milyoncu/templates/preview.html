@@ -2,11 +2,10 @@
 {% load static %}
 {% block content %}
 
-<div class="main">
 <div class="content">
     <div class="content_top">
         <div class="back-links">
-        <p><a href="index.html">Home</a> >>>> <a href="#">Electronics</a></p>
+        <p><a href="index.html">Home</a> >>>> <a href="#">Electronics </a></p>
         </div>
         <div class="clear"></div>
     </div>
@@ -16,23 +15,32 @@
                 <div class="grid images_3_of_2">
                     <div id="container">
                        <div id="products_example">
+
                            <div id="products">
-                            <div class="slides_container">
-                                <a href="#" target="_blank"><img src="images/productslide-1.jpg" alt=" " /></a>
-                                <a href="#" target="_blank"><img src="images/productslide-2.jpg" alt=" " /></a>
-                                <a href="#" target="_blank"><img src="images/productslide-3.jpg" alt=" " /></a>
-                                <a href="#" target="_blank"><img src="images/productslide-4.jpg" alt=" " /></a>
-                                <a href="#" target="_blank"><img src="images/productslide-5.jpg" alt=" " /></a>
-                                <a href="#" target="_blank"><img src="images/productslide-6.jpg" alt=" " /></a>
+
+
+                                <div class="slides_container" style="overflow: hidden; position: relative; display: block;">
+
+                                    <div class="slides_control" style="position: relative; width: 1098px; height: 274px; left: -366px;">
+
+
+                                            {% for object in object_list %}
+
+                                        <a href="{{object.slug}}" target="_blank" style="position: absolute; top: 0px; left: 366px; z-index: 5;">
+                                            <img src="/{{ object.logo }}" alt=" " style="width:312px; height: 312px;"/>
+                                        </a>
+                                        {% endfor %}
+
+
+                                </div>
+
                             </div>
                             <ul class="pagination">
-                                <li><a href="#"><img src="images/thumbnailslide-1.jpg" alt=" " /></a></li>
-                                <li><a href="#"><img src="images/thumbnailslide-2.jpg" alt=" " /></a></li>
-                                <li><a href="#"><img src="images/thumbnailslide-3.jpg" alt=" " /></a></li>
-                                <li><a href="#"><img src="images/thumbnailslide-4.jpg" alt=" " /></a></li>
-                                <li><a href="#"><img src="images/thumbnailslide-5.jpg" alt=" " /></a></li>
-                                <li><a href="#"><img src="images/thumbnailslide-6.jpg" alt=" " /></a></li>
+                                <li><a href="#"><img src="/{{ object.logo }}" alt=" " /></a></li>
+
                             </ul>
+
+
                         </div>
                     </div>
                 </div>
@@ -263,7 +271,7 @@ $(document).ready(function () {
             </div>
     </div>
 </div>
-</div>
-</div>
+
+
 
 {% endblock %}

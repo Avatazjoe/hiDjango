@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.views.generic import TemplateView, ListView , DetailView
 from .models import Product, Category
 # Create your views here.
@@ -39,9 +39,14 @@ class AllProducts(IndexView):
     template_name = "allproducts.html"
     queryset = Product.objects.all()
 
-class Preview(SweatbandsView):
-
+class Preview(DetailView):
     template_name = "preview.html"
+
+
+    def get_object(self):
+        """Returns the BlogPost instance that the view displays"""
+        return get_object_or_404(Product, slug=self.kwargs.get("slug"))
+
 
 
 

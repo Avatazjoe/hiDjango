@@ -9,7 +9,7 @@
 				      <li><a href="{% url 'milyoncu:bandanas' %}">Bandanas</a></li>
 				      <li><a href="{% url 'milyoncu:balloons' %}">Balloons</a></li>
 				      <li><a href="{% url 'milyoncu:tablecovers' %}">Table Covers</a></li>
-                      <li><a href="{% url 'milyoncu:coasters'%}">Coasters</a></li>
+                      <li><a href="{% url 'milyoncu:coasters' %}">Coasters</a></li>
 				  </ul>
 				</div>
     <div class="content">
@@ -26,7 +26,7 @@
 			<div class="section group">
                 {% for object in object_list %}
 				<div class="grid_1_of_4 images_1_of_4">
-					 <a href="preview.html"><img src="/{{object.logo}}" alt="" /></a>
+					 <a href="{% url 'milyoncu:preview' object.slug %}"><img src="/{{object.logo}}" alt="" /></a>
 					 <h2> {{ object.name }} </h2>
 					<div class="price-details">
 				       <div class="price-number">

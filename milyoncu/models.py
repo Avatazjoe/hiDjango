@@ -20,11 +20,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-    slug = models.SlugField(editable=False) # hide from admin
-
-
-
-
+    slug = models.SlugField(editable=True) # hide from admin
 
 class Category(models.Model):
     name = models.CharField(max_length=30)

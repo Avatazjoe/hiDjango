@@ -9,6 +9,16 @@
 <script type="text/javascript" src="{% static 'js/jquery-1.7.2.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
+<script>
+$(document).ready(function () {
+        $('#quantity').on('keyup',function(){
+        var tot = $('#price').attr('value') * this.value;
+         $('#total_price').html(tot);
+    });
+
+
+});
+</script>
 </head>
 <body>
   <div class="wrap">

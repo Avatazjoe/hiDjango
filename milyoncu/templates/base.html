@@ -25,13 +25,29 @@ $(document).ready(function () {
 	<div class="header">
 		<div class="headertop_desc">
 			<div class="call">
-				 <p><span>Need help?</span> call us <span class="number">1-22-3456789</span></span></p>
+                <style>
+                    .kayit a {
+                        padding: 4px;
+                        background: #5e5e5e;
+                        color : white;
+                        border:1px solid black;
+
+                    }
+
+                </style>
+			 {% if user.is_authenticated %}
+                  Hi <u> {{ user.username }}! </u>
+                  <p class="kayit" style="margin-top: 10px;"><a href="{% url 'logout' %}">logout</a></p>
+                {% else %}
+                  <p style="margin-bottom:10px;">You are not logged in</p>
+
+                  <div class="kayit" style="display: inline-block;">
+                       <a href="{% url 'login' %}">Login</a> </div>
+            {% endif %}
 			</div>
 			<div class="account_desc">
 				<ul>
-					<li><a href="#">Register</a></li>
-					<li><a href="#">Login</a></li>
-					<li><a href="#">Delivery</a></li>
+					<li><a href="/accounts/signup/">Register</a></li>
 					<li><a href="#">Checkout</a></li>
 					<li><a href="#">My Account</a></li>
 				</ul>

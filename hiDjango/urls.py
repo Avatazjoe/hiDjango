@@ -17,7 +17,8 @@ from django.conf.urls import include,url
 from django.contrib import admin
 from django.conf  import settings
 from django.conf.urls.static import static
-from milyoncu.views import IndexView, ListView
+from milyoncu.views import IndexView, ListView , SignUp
+
 
 
 
@@ -26,6 +27,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$/', IndexView.as_view(), name='index'),
     url(r'^milyoncu/', include('milyoncu.urls' , namespace="milyoncu")),
+    url('accounts/', include('django.contrib.auth.urls')),
+    url('signup/', SignUp.as_view(), name='signup'),
+
 
 
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

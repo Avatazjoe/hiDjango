@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url , include
 from .views import *
 
 urlpatterns = [
@@ -23,6 +23,8 @@ urlpatterns = [
     # url(r'^preview/', Preview.as_view(), name='preview'),
 
     url(r'^(?P<slug>[\w-]+)/', Preview.as_view(), name='preview'),
+
+
 
 
 ]

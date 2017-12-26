@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
+<style>
+	.star-ratings-rating-average,
+	.star-ratings-rating-count,
+	.star-ratings-rating-user {
+		display:none;
+	}
+</style>
 <div class="content">
     <div class="content_top">
         <div class="back-links">
@@ -21,6 +27,7 @@
                            {% endfor %}
 
                             <ul class="pagination">
+
                                 <li><a href="#"><img src="/{{ object.logo }}" alt=" " /></a></li>
 
                             </ul>
@@ -33,7 +40,9 @@
 
 
             <div class="desc span_3_of_2">
-                <h2>{{object.name}} </h2>
+                <h2>{{object.name}} </h2> <p>{% load ratings %}
+					            {% ratings object %}</p>
+
                 <p>{{object.description}}</p>
                 <div class="price">
                     <p id="price" value="{{object.price}}">Price: <span>{{object.price}}$</span></p>

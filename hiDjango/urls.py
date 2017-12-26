@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^milyoncu/', include('milyoncu.urls' , namespace="milyoncu")),
     url('accounts/', include('django.contrib.auth.urls')),
     url('signup/', SignUp.as_view(), name='signup'),
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
 
 
 

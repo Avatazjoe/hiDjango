@@ -51,7 +51,11 @@ $(document).ready(function () {
 			</div>
 			<div class="account_desc">
 				<ul>
+
 					<li><a href="/accounts/signup/">Register</a></li>
+					{% if user.is_superuser %}
+					<li><a href="{% url 'milyoncu:post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">ADD NEW PRODUCT</span></a></li>
+					{% endif %}
 					<li><a href="#">Checkout</a></li>
 					<li><a href="#">My Account</a></li>
 				</ul>
@@ -138,6 +142,7 @@ $(document).ready(function () {
 
     </div>
  </div>
+
    <div class="footer">
    	  <div class="wrap">
 	     <div class="section group">

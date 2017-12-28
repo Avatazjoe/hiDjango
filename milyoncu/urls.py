@@ -1,5 +1,5 @@
 from django.conf.urls import url , include
-from .views import *
+from milyoncu.views import *
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),
@@ -17,6 +17,8 @@ urlpatterns = [
     url(r'^coasters/', CoastersView.as_view(), name='coasters'),
 
     url(r'^cart/', CartView.as_view(), name='cart'),
+
+    url(r'^post/new/', post_new, name='post_new'),
 
     url(r'^allproducts/', AllProducts.as_view(), name='allproducts'),
 

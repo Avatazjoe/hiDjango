@@ -1,10 +1,32 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404 ,redirect, reverse
 from django.views.generic import TemplateView, ListView , DetailView
 from .models import Product, Category
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
+from milyoncu.forms import ProductForm
+from django.template.defaultfilters import slugify
 
+def post_new(request):
+    form = ProductForm()
+    #return render(request, 'edit.html', {'form': form})
+    if request.method == "POST":
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.name = request.POST['name']
+            post.description = request.POST['description']
+            post.price = request.POST['price']
+            post.size = request.POST['size']
+            post.category.id = request.POST['category']
+            post.logo = request.FILES['logo']
+
+            post.save()
+            return redirect('milyoncu:preview', slug= slugify(post.name))
+
+    else:
+        form = ProductForm()
+        return render(request, 'edit.html', {'form': form})
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
@@ -54,8 +76,5 @@ class Preview(DetailView):
     def get_object(self):
         """Returns the BlogPost instance that the view displays"""
         return get_object_or_404(Product, slug=self.kwargs.get("slug"))
-
-
-
 
 

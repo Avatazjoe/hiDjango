@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{% if user.is_superuser %}
+<h1>New Product</h1>
+    <form method="POST" class="post-form"  enctype="multipart/form-data">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Kaydet</button>
+    </form>
+
+{% endif %}
+<h1>lOGIN AS SUDO</h1>
+{% endblock %}

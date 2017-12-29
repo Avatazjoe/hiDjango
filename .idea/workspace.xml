@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f864aefa-37fd-442c-b73b-efb96146cee8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hiDjango/settings.py" afterPath="$PROJECT_DIR$/hiDjango/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/milyoncu/admin.py" afterPath="$PROJECT_DIR$/milyoncu/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/milyoncu/forms.py" afterPath="$PROJECT_DIR$/milyoncu/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/milyoncu/models.py" afterPath="$PROJECT_DIR$/milyoncu/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/milyoncu/templates/base.html" afterPath="$PROJECT_DIR$/milyoncu/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/milyoncu/templates/cart.html" afterPath="$PROJECT_DIR$/milyoncu/templates/cart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/milyoncu/templates/edit.html" afterPath="$PROJECT_DIR$/milyoncu/templates/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/milyoncu/templates/preview.html" afterPath="$PROJECT_DIR$/milyoncu/templates/preview.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/milyoncu/views.py" afterPath="$PROJECT_DIR$/milyoncu/views.py" />
-    </list>
+    <list default="true" id="f864aefa-37fd-442c-b73b-efb96146cee8" name="Default" comment="" />
     <ignored path="hiDjango.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -544,7 +532,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13541667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

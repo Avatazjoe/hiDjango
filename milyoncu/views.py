@@ -1,32 +1,14 @@
 from django.shortcuts import render,get_object_or_404 ,redirect, reverse
-from django.views.generic import TemplateView, ListView , DetailView
-from .models import Product, Category
+from django.views.generic import TemplateView, ListView , DetailView , FormView
+from .models import Product, Category , Cart
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
-from milyoncu.forms import ProductForm
+from milyoncu.forms import ProductForm,AddCart
 from django.template.defaultfilters import slugify
 
-def post_new(request):
-    form = ProductForm()
-    #return render(request, 'edit.html', {'form': form})
-    if request.method == "POST":
-        form = ProductForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.name = request.POST['name']
-            post.description = request.POST['description']
-            post.price = request.POST['price']
-            post.size = request.POST['size']
-            post.category.id = request.POST['category']
-            post.logo = request.FILES['logo']
 
-            post.save()
-            return redirect('milyoncu:preview', slug= slugify(post.name))
 
-    else:
-        form = ProductForm()
-        return render(request, 'edit.html', {'form': form})
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
@@ -61,16 +43,33 @@ class CoastersView(IndexView):
     template_name = "coasters.html"
     queryset = Product.objects.all().filter(category_id='6')
 
-class CartView(IndexView):
+class CartView(ListView):
     template_name = "cart.html"
-    #queryset = Product.objects.all().filter(category_id='')
+    def get_queryset(self):
+            return Cart.objects.filter(user=self.request.user)
 
 class AllProducts(IndexView):
     template_name = "allproducts.html"
     queryset = Product.objects.all()
 
-class Preview(DetailView):
+class Preview(DetailView,FormView):
     template_name = "preview.html"
+    form_class = AddCart
+
+    def form_valid(self, form):
+        print(form)
+        cart = form.save(commit=False)
+        cart.quantity= form.cleaned_data['quantity']
+        cart.product = self.get_object()
+        # cart.rating=form.cleaned_data['rating']
+        cart.save()
+        return super(DetailView, self).form_valid(form)
+
+    def get_success_url(self,  **kwargs):
+
+           return reverse_lazy('milyoncu:cart')
+
+
 
 
     def get_object(self):
@@ -78,3 +77,39 @@ class Preview(DetailView):
         return get_object_or_404(Product, slug=self.kwargs.get("slug"))
 
 
+def post_new(request):
+    form = ProductForm()
+    #return render(request, 'edit.html', {'form': form})
+    if request.method == "POST":
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.name = request.POST['name']
+            post.description = request.POST['description']
+            post.price = request.POST['price']
+            post.size = request.POST['size']
+            post.category.id = request.POST['category']
+            post.logo = request.FILES['logo']
+
+            post.save()
+            return redirect('milyoncu:preview', slug= slugify(post.name))
+
+    else:
+        form = ProductForm()
+        return render(request, 'edit.html', {'form': form})
+
+
+
+def totalPrice(request):
+
+
+    user = request.user;
+    if user.is_authenticated:
+        list = Cart.objects.filter(user=user)
+        total= 0
+        for c in list:
+            total += c.quantity*c.product.price
+
+
+        return { "cartTotal":total, "totalAmount": list.count()}
+    return {}

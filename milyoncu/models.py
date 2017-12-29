@@ -26,3 +26,15 @@ class Category(models.Model):
     name = models.CharField(max_length=30)
     def __str__(self):
         return self.name
+
+class Cart(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
+    product = models.ForeignKey('Product',on_delete=models.CASCADE,related_name="product")
+    created = models.DateTimeField(auto_now_add=True)
+    quantity = models.IntegerField()
+
+    def __str__(self):
+        return self.product.name+" => "+self.user.username
+
+    def TotalPrice(self):
+        return self.quantity * self.product.price

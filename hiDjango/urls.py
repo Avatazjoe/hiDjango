@@ -17,16 +17,14 @@ from django.conf.urls import include,url
 from django.contrib import admin
 from django.conf  import settings
 from django.conf.urls.static import static
+from django.views.generic import RedirectView
+
 from milyoncu.views import IndexView, ListView , SignUp
-
-
-
-
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$/', IndexView.as_view(), name='index'),
-    url(r'^milyoncu/', include('milyoncu.urls' , namespace="milyoncu")),
+    url(r'^$', RedirectView.as_view(pattern_name='milyoncu:index', permanent=False)),
+    url(r'^milyoncu/', include('milyoncu.urls', namespace="milyoncu")),
     url('accounts/', include('django.contrib.auth.urls')),
     url('signup/', SignUp.as_view(), name='signup'),
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),

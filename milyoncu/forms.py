@@ -13,10 +13,8 @@ class ProductForm(forms.ModelForm):
 class AddCart (forms.ModelForm):
         SIZE_CHOICES = [
         ('L', 'L'),
-
         ]
-
-        quantity  = forms.IntegerField(label='Quanitiy ', widget=forms.TextInput(attrs={"id":"quantity"}))
+        quantity = forms.IntegerField(label='Quanitiy ', widget=forms.TextInput(attrs={"id":"quantity"}))
         size = forms.CharField(label='Size ', widget=forms.Select(attrs={"class":"selector"},choices=SIZE_CHOICES ))
         class Meta:
             model = Cart

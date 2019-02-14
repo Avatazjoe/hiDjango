@@ -8,4 +8,4 @@ And do not forget that installing package provided with `requirements.txt`.
 
 Just install `pip`. You can get the all package by tapping `pip install -r requirements.txt`.
 
-To reach the website: http://selvianl.pythonanywhere.com/milyoncu/
+To reach the website: http://selvianl.pythonanywhere.com/

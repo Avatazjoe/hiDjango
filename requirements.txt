@@ -10,4 +10,5 @@ pytz==2018.9
 six==1.12.0
 sqlparse==0.2.4
 swapper==1.1.0
-django-star-ratings
+django-star-ratings==0.7.0
+

@@ -1,7 +1,6 @@
 .idea/*
 __pycache__/
 *.xml
-db.sqlite3
 *.pyc
 *.egg-info/
 *.egg

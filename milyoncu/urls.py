@@ -18,6 +18,8 @@ urlpatterns = [
 
     url(r'^cart/', CartView.as_view(), name='cart'),
 
+    url(r'^/(?P<pk>[0-9]+)/delete$', product_delete, name='product_delete'),
+
     url(r'^post/new/', post_new, name='post_new'),
 
     url(r'^allproducts/', AllProducts.as_view(), name='allproducts'),

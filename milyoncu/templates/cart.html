@@ -146,8 +146,12 @@
                                     <td class="text-left">{{object.product.name}}</td>
                                     <td class="text-left">{{object.product.size}}</td>
                                     <td class="text-left">{{object.quantity}}</td>
+                                    <td class="text-left">$  {{ object.TotalPrice }}
 
-                                    <td class="text-left">$  {{ object.TotalPrice }} </td>
+                                        <a href="{% url 'milyoncu:product_delete' object.id %}" >
+                                            <i class="fa fa-trash" style="float:right;" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
                                     </tr>
 
 

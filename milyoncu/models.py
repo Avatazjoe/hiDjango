@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf  import settings
 from django.utils.text import slugify
-from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -28,8 +28,8 @@ class Category(models.Model):
         return self.name
 
 class Cart(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
-    product = models.ForeignKey('Product',on_delete=models.CASCADE,related_name="product")
+    user = models.OneToOneField(User,unique=True)
+    product = models.ForeignKey('Product',on_delete=models.CASCADE, related_name="product")
     created = models.DateTimeField(auto_now_add=True)
     quantity = models.IntegerField()
 

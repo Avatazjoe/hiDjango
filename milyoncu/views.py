@@ -71,9 +71,9 @@ class Preview(DetailView, FormView):
 
     def form_valid(self, form):
         cart = form.save(commit=False)
-        cart.quantity= form.cleaned_data['quantity']
+        cart.quantity = form.cleaned_data['quantity']
+        cart.user = self.request.user
         cart.product = self.get_object()
-        #cart.rating=form.cleaned_data['rating']
         cart.save()
         return super(DetailView, self).form_valid(form)
 

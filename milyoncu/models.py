@@ -6,10 +6,10 @@ from django.contrib.auth.models import User
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=30)
-    description = models.TextField (max_length=250)
+    name = models.CharField(max_length=5555)
+    description = models.TextField(max_length=5555)
     price = models.FloatField ()
-    size = models.CharField(max_length=30)
+    size = models.CharField(max_length=5555)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     logo = models.ImageField(upload_to="static/images", blank=True)
 
@@ -28,7 +28,7 @@ class Category(models.Model):
         return self.name
 
 class Cart(models.Model):
-    user = models.OneToOneField(User,unique=True)
+    user = models.ForeignKey(User, unique=False)
     product = models.ForeignKey('Product',on_delete=models.CASCADE, related_name="product")
     created = models.DateTimeField(auto_now_add=True)
     quantity = models.IntegerField()

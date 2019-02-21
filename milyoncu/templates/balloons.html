@@ -23,7 +23,6 @@
 				<div class="grid_1_of_4 images_1_of_4">
 					{% load ratings %}
 					{% ratings object %}
-					 <a href="{% url 'milyoncu:preview' object.slug %}"><img src="/{{ object.logo }}" alt="" /></a>
 					 <h2>{{object.name}} </h2>
 					<div class="price-details">
 				       <div class="price-number">

@@ -62,7 +62,7 @@ class AllProducts(IndexView):
 
 
 def product_delete(request, pk):
-    Cart.objects.get(user=request.user, pk=pk).delete()
+    Cart.objects.filter(user=request.user, id=pk).delete()
     return redirect("milyoncu:cart")
 
 class Preview(DetailView, FormView):

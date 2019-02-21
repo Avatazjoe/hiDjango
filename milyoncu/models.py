@@ -28,7 +28,7 @@ class Category(models.Model):
         return self.name
 
 class Cart(models.Model):
-    user = models.ForeignKey(User, unique=False)
+    user = models.ForeignKey(User)
     product = models.ForeignKey('Product',on_delete=models.CASCADE, related_name="product")
     created = models.DateTimeField(auto_now_add=True)
     quantity = models.IntegerField()

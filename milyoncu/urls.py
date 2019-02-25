@@ -1,5 +1,6 @@
-from django.conf.urls import url , include
+from django.conf.urls import url
 from milyoncu.views import *
+from milyoncu.api import ProductAddView
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),
@@ -23,6 +24,8 @@ urlpatterns = [
     url(r'^post/new/', post_new, name='post_new'),
 
     url(r'^allproducts/', AllProducts.as_view(), name='allproducts'),
+
+    url(r'^api/v1/add', ProductAddView.as_view(), name='allproducts'),
 
     url(r'^(?P<slug>[\w-]+)/', Preview.as_view(), name='preview'),
 

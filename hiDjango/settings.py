@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["selvianl.pythonanywhere.com", "127.0.0.1", "localhost", "0.0.0
 INSTALLED_APPS = [
     'milyoncu',
     'star_ratings',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

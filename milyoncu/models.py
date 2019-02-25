@@ -23,6 +23,7 @@ class Product(models.Model):
     slug = models.SlugField(editable=True) # hide from admin
 
 class Category(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=30)
     def __str__(self):
         return self.name

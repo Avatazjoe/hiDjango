@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404 ,redirect, reverse
-from django.views.generic import TemplateView, ListView , DetailView , FormView, DeleteView
+from django.views.generic import ListView, DetailView, FormView, DeleteView
 from .models import Product, Category , Cart
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
@@ -61,9 +61,19 @@ class AllProducts(IndexView):
     queryset = Product.objects.all()
 
 
-def product_delete(request, pk):
-    Cart.objects.filter(user=request.user, id=pk).delete()
-    return redirect("milyoncu:cart")
+class Delete(DeleteView):
+    model = Cart
+
+    def get(self, request, *args, **kwargs):
+        obj = Cart.objects.get(user_id=self.request.user.id, id=self.kwargs.get('id'))
+        obj.delete()
+        return self.get_success_url()
+
+    def get_success_url(self):
+        return redirect('milyoncu:cart')
+
+
+
 
 class Preview(DetailView, FormView):
     template_name = "preview.html"
